@@ -1,0 +1,63 @@
+:root { font-family: 'Segoe UI', Arial, sans-serif; color: #222a39; background: #171523; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+app-root { display: block; position: relative; isolation: isolate; min-height: 100vh; min-height: 100svh; }
+/* The background belongs to the document, so it moves naturally when scrolling,
+   including on mobile browsers. Cover preserves the photo's aspect ratio. */
+app-root::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(180deg, #10101b99, #10101b66 50%, #10101b99), url('./assets/teo-background.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat; }
+.page { max-width: 1240px; margin: auto; padding: 0 58px; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+.header { height: 104px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e3e6eb; }
+.brand { display: flex; align-items: center; gap: 11px; color: #222a39; text-decoration: none; font-size: 24px; font-weight: 750; letter-spacing: -1px; }
+.brand-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #5a52dc; color: white; font-size: 26px; line-height: 1; letter-spacing: 0; }
+.header-note { display: flex; align-items: center; gap: 18px; font-size: 10px; font-weight: 650; letter-spacing: 1.6px; color: #737b88; }
+.local-badge { background: #eceef2; padding: 6px 9px; border-radius: 5px; font-size: 9px; color: #626b78; }
+main { width: 100%; max-width: 620px; margin: 0 auto; flex: 1; padding: 59px 0 54px; }
+.intro { text-align: center; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #7167be; }
+.eyebrow > span { width: 6px; height: 6px; border-radius: 50%; background: #8072db; }
+h1 { font-size: clamp(38px, 5vw, 54px); line-height: 1.16; letter-spacing: -2px; font-weight: 720; margin: 23px 0 18px; }
+h1 > span { color: #6459da; }
+.intro > p { color: #7b8290; font-size: 15px; line-height: 1.8; margin: 0; }
+.demo-card { margin-top: 35px; border: 1px solid #e0e3ea; border-radius: 17px; background: white; overflow: hidden; box-shadow: 0 8px 32px #27304605; }
+.card-top { display: flex; align-items: center; justify-content: space-between; padding: 18px 25px; border-bottom: 1px solid #eeeff3; }
+.card-label { font-size: 10px; font-weight: 750; letter-spacing: 1.5px; color: #626b7b; }
+.step { font-family: Consolas, monospace; color: #969ca9; font-size: 10px; letter-spacing: .6px; }
+.card-body { text-align: center; padding: 27px 25px 31px; }
+.greeting-icon { display: grid; place-items: center; margin: auto; background: #f0eefe; color: #6a5dde; border: 1px solid #e7e3fb; border-radius: 14px; width: 46px; height: 46px; font-size: 27px; }
+h2 { font-size: 22px; letter-spacing: -.5px; margin: 17px 0 9px; }
+.card-body > p { font-size: 13px; line-height: 1.6; margin: 0; color: #858b97; }
+button { min-height: 46px; min-width: 196px; margin-top: 25px; padding: 12px 22px; display: inline-flex; align-items: center; justify-content: center; gap: 24px; border: 0; border-radius: 9px; background: #6155d9; color: white; font: 600 14px 'Segoe UI', Arial, sans-serif; cursor: pointer; box-shadow: 0 3px 6px #6155d921; transition: background .15s, transform .15s; }
+button:hover:not(:disabled) { background: #5044c6; transform: translateY(-1px); }
+button:focus-visible, a:focus-visible { outline: 3px solid #a7a0ee; outline-offset: 4px; }
+button:disabled { opacity: .7; cursor: wait; }
+button > span:not(.spinner) { font-size: 20px; font-weight: 400; }
+.response-area { margin: 0 22px 22px; border: 1px dashed #dfe2e9; border-radius: 9px; padding: 18px 20px; background: #fafbfc; min-height: 97px; }
+.response-heading { display: flex; align-items: center; gap: 7px; font-size: 9px; font-weight: 700; letter-spacing: 1.1px; color: #8a919f; }
+.status-dot { background: #b8bfcb; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.status-dot.active { background: #348a63; }
+.status-dot.error { background: #ba5544; }
+.response-time { margin-left: auto; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.placeholder { font-size: 13px; color: #9aa1ae; margin: 13px 0 0; }
+.response-area.success { background: #f4faf7; border: 1px solid #d8e9df; }
+.response-message { color: #28724e; font-family: Consolas, monospace; font-size: 15px; line-height: 1.6; margin: 11px 0 0; overflow-wrap: anywhere; }
+.response-area.failure { background: #fff8f5; border: 1px solid #f0d9d2; }
+.error-message { color: #9c4939; font-size: 13px; line-height: 1.7; margin: 10px 0 0; }
+.footnote { text-align: center; font-size: 11px; color: #8b929e; margin: 21px 0 0; }
+.footnote > span { color: #8576cb; margin-right: 5px; font-size: 15px; }
+footer { min-height: 69px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e3e6eb; color: #959ca7; font-size: 9px; letter-spacing: 1px; }
+.footer-divider { margin: 0 9px; color: #b7bdc8; }
+footer > span:last-child { letter-spacing: .2px; font-size: 11px; }
+.spinner { width: 15px; height: 15px; border: 2px solid #ffffff55; border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+/* Keep text readable over the photo; the response card has its own light surface. */
+.header, footer { border-color: #ffffff40; flex-shrink: 0; }
+.brand, h1 { color: #fff; }
+.header-note, .intro > p, .footnote, footer { color: #f0edf7; text-shadow: 0 1px 5px #0009; }
+.eyebrow, h1 > span, .footnote > span { color: #ded6ff; }
+.eyebrow > span { background: #ded6ff; }
+h1 { text-shadow: 0 2px 16px #0006; }
+.demo-card { background: #fffffff5; border-color: #ffffffc9; box-shadow: 0 16px 48px #0003; }
+.footer-divider { color: #e6dff5; }
+@media (max-width: 600px) { .page { padding: 0 20px; } .header { height: 80px; } .header-note { font-size: 0; gap: 0; } main { padding: 41px 0; } h1 { letter-spacing: -1.4px; } .card-top { padding: 17px 18px; } .card-body { padding-left: 16px; padding-right: 16px; } .response-area { margin: 0 14px 14px; padding: 16px 14px; } footer { gap: 18px; font-size: 8px; } .response-heading { font-size: 8px; letter-spacing: .5px; } }
+@media (max-width: 360px) { .page { padding: 0 12px; } .card-top { gap: 8px; flex-wrap: wrap; } .response-heading { flex-wrap: wrap; } footer { flex-wrap: wrap; justify-content: center; gap: 8px; padding: 16px 0; text-align: center; } button { min-width: 0; width: 100%; max-width: 230px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

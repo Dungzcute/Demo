@@ -1,0 +1,40 @@
+<div class="page">
+  <header class="header">
+    <a class="brand" href="/" aria-label="Tèo — trang chủ"><span class="brand-icon" aria-hidden="true">D</span> Tèo</a>
+    <span class="header-note">A SMALL FULL-STACK DEMO <span class="local-badge">LOCAL</span></span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="eyebrow"><span></span> MỘT KẾT NỐI, MỘT LỜI CHÀO</div>
+      <h1>Tèo <span>đẳng cấp</span></h1>
+      <p>Một cú nhấp để gửi yêu cầu.<br>Một lời chào từ phía bên kia.</p>
+    </section>
+
+    <section class="demo-card" aria-labelledby="demo-heading">
+      <div class="card-top"><span class="card-label">THỬ KẾT NỐI</span><span class="step">01 / HELLO WORLD</span></div>
+      <div class="card-body">
+        <div class="greeting-icon" aria-hidden="true">↗</div>
+        <h2 id="demo-heading">Gửi một lời chào</h2>
+        <p>Bấm nút bên dưới để lấy thông điệp từ máy chủ.</p>
+        <button type="button" (click)="loadMessage()" [disabled]="loading()" [attr.aria-busy]="loading()">
+          @if (loading()) { <span class="spinner" aria-hidden="true"></span> }
+          Hi Tèo
+          @if (!loading()) { <span aria-hidden="true">↗</span> }
+        </button>
+      </div>
+      <div class="response-area" [class.success]="message()" [class.failure]="error()" aria-live="polite" aria-atomic="true">
+        <div class="response-heading"><span class="status-dot" [class.active]="message()" [class.error]="error()"></span>
+          {{ loading() ? 'ĐANG CHỜ PHẢN HỒI' : message() ? 'ĐÃ NHẬN PHẢN HỒI' : error() ? 'KẾT NỐI CHƯA THÀNH CÔNG' : 'PHẢN HỒI SẼ HIỆN Ở ĐÂY' }}
+          @if (message()) { <span class="response-time">{{ receivedAt() }}</span> }
+        </div>
+        @if (message()) { <p class="response-message">{{ message() }}</p> }
+        @else if (error()) { <p class="error-message">{{ error() }}</p> }
+        @else { <p class="placeholder">{{ loading() ? 'Lời chào đang trên đường đến…' : 'Sẵn sàng khi bạn sẵn sàng.' }}</p> }
+      </div>
+    </section>
+    <p class="footnote"><span aria-hidden="true">✧</span> Nhỏ gọn. Chạy thật. Bắt đầu từ những điều cơ bản.</p>
+  </main>
+
+  <footer><span>HELLO LAB <span class="footer-divider">/</span> INTERVIEW PROJECT</span><span>Made to connect <span aria-hidden="true">↗</span></span></footer>
+</div>
